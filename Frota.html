@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Frota | Ellca</title>
+  <link rel="stylesheet" href="styles_dash.css">
+</head>
+<body>
+
+  <header>
+    <nav>
+      <a href="#" class="logo">ELLCA</a>
+      <div class="menu">
+        <a href="index.html">HOME</a>
+        <a href="#">BELÉM</a>
+        <a href="#">MARABÁ</a>
+        <a href="#">PARAUAPEBAS</a>
+      </div>
+    </nav>
+  </header>
+
+  <section class="frota">
+    <div class="raio-container"></div>
+    
+    <h2 class="titulo-principal">Frota</h2>
+
+    <div class="carousel-container">
+      
+      <button class="prev-btn" id="prevBtn" aria-label="Anterior">&#10094;</button>
+
+      <div class="frota-cards">
+        
+        <div class="card active">
+          <div class="verificado">
+            <img src="img/verificar.png" alt="Verificado">
+          </div>
+          <img src="img/imagem_frota.png" alt="Dashboard Frota">
+          <h3>Frota</h3>
+          <p>Acompanhe manutenção da frota e gestão da estrutura operacional</p>
+          <ul>
+            <li class="acesso-item">
+              <a href="https://lookerstudio.google.com/u/0/reporting/6eeff0b9-34d0-4a77-886f-43a2171a301f/page/p_nrgyefmywd" class="botao-acessar" target="_blank">
+                <img src="img/logo_looker-studio.webp" alt="Looker">
+                Acessar 🚀🔒
+              </a>
+            </li>
+            <li class="acesso-item">
+              <a href="https://app.powerbi.com/view?r=eyJrIjoiYTM1YzY0ZjAtNmUzYS00YjMxLWIyNjktNWMwNzc3MTBlNWRmIiwidCI6IjAzYjE3MmI0LTJiOTktNDg5Ny05NmUyLTk4ZTY1NGJmYWZmYSJ9" class="botao-acessar" target="_blank">
+                <img src="img/logo_power-bi.png" alt="PowerBI">
+                Acessar 🚀
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="faixa">EM BREVE 🏆🔒</div>
+          <img src="img/imagem_frota.png" alt="Dashboard Frota">
+          <h3>Abastecimento</h3>
+          <p>Controle de gastos com combustível e eficiência de rotas.</p>
+          <ul>
+            <li class="acesso-item">
+              <a href="#" class="botao-acessar">
+                <img src="img/logo_looker-studio.webp" alt="Looker">
+                Em breve ⏳
+              </a>
+            </li>
+            <li class="acesso-item">
+              <a href="#" class="botao-acessar">
+                <img src="img/logo_power-bi.png" alt="PowerBI">
+                Em breve ⏳
+              </a>
+            </li>
+          </ul>
+        </div>
+
+      </div> <button class="next-btn" id="nextBtn" aria-label="Próximo">&#10095;</button>
+
+    </div> <div class="dots-container">
+      <span class="dot active"></span>
+      <span class="dot"></span>
+    </div>
+
+  </section>
+
+  <script src="js_dash.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,621 @@
+/* ========================================================= 
+ /* 🔮 CSS V62: UNIFIED GLARE EFFECT (BUTTONS & CARDS) */ /* 
+ /* ========================================================= */ 
+
+/* importação da fonte Poppins do Google Fonts */
+ 
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700;900&display=swap'); 
+
+/* início das variáveis globais do CSS */
+:root { 
+    --primary-color: #3b82f6; /* cor primária principal do tema */
+    --bg-dark: #010409; /* cor de fundo escura principal */
+    --text-white: #ffffff; /* cor branca padrão para textos */
+    --nav-height: 80px; /* altura padrão do header/navegação */
+    --neon-blue: #00d4ff; /* cor azul neon usada em brilhos */
+    --shine-color: linear-gradient(to right, #ffffff 20%, #999 40%, #ffffff 60%, #999 80%, #ffffff 100%); /* gradiente metálico para efeito de brilho */
+} /* fim das variáveis globais */
+
+* { margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; } /* reset global de margens, preenchimentos e box model */
+
+    /* estilização principal do body */
+    body { 
+    background-color: var(--bg-dark); /* aplica fundo escuro usando variável */
+    color: var(--text-white); /* define cor padrão do texto */
+    font-family: 'Poppins', sans-serif; /* define a fonte padrão */
+    overflow: hidden; /* remove barras de rolagem */
+} 
+/* fim do body */
+
+
+/* --- VINHETA CINEMATOGRÁFICA --- */ /* comentário descritivo da seção */
+body::after { /* pseudo-elemento para efeito de vinheta */
+    content: ''; /* cria elemento vazio */
+    position: fixed; /* posicionamento fixo na tela */
+    inset: 0; /* ocupa toda a tela */
+    background: radial-gradient(circle, transparent 85%, rgba(0,0,0,0.7) 100%); /* gradiente radial escurecendo bordas */
+    pointer-events: none; /* impede interação com o efeito */
+    z-index: 500; /* camada acima do conteúdo */
+} /* fim da vinheta */
+
+
+/* --- HEADER --- */ /* comentário da seção do cabeçalho */
+header { /* estilização do header */
+    width: 100%; 
+    height: var(--nav-height); /* largura total e altura definida */
+    display: flex; 
+    align-items: center; /* flexbox e alinhamento vertical */
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    z-index: 1000; /* fixa no topo com alta prioridade */
+    background: linear-gradient(to bottom, rgba(1, 4, 9, 0.9), transparent); /* gradiente de fundo */
+    backdrop-filter: blur(15px); /* desfoque do fundo */
+} /* fim do header */
+
+
+header nav { /* navegação interna */
+    width: 100%; 
+    display: flex; 
+    justify-content: space-between; /* ocupa toda largura e distribui elementos */
+    align-items: center; 
+    padding: 0 50px; /* alinhamento vertical e espaçamento lateral */
+} /* fim do nav */
+
+
+header .logo { /* estilização do logo */
+    font-weight: 900; 
+    color: #fff; text-decoration: none; /* peso máximo, cor branca e sem sublinhado */
+    font-size: 1.8rem; 
+    letter-spacing: 4px; /* tamanho e espaçamento entre letras */
+    text-shadow: 0 0 15px var(--neon-blue); /* brilho neon no texto */
+} /* fim do logo */
+
+header .menu a { /* links do menu */
+    color: #fff; 
+    text-decoration: none; 
+    margin-left: 30px; /* cor branca, sem sublinhado e espaçamento */
+    font-size: 0.75rem; 
+    font-weight: 600; opacity: 0.7; /* tamanho, peso e opacidade */
+    transition: 0.3s; 
+    text-transform: uppercase; /* animação suave e texto em caixa alta */
+} /* fim dos links */
+
+
+header .menu a:hover { 
+    opacity: 1; 
+    color: var(--neon-blue); } /* efeito hover nos links */
+
+
+
+/* =========================================================
+   3. ANIMAÇÕES
+   ========================================================= */
+
+@keyframes progressLoop {
+    from { width: 100%; }
+    to { width: 0%; }
+}
+
+@keyframes shineHollywood {
+    to { background-position: 200% center; }
+}
+
+
+
+/* =========================================================
+   4. BARRA DE PROGRESSO
+   ========================================================= */
+
+.progress-bar-container {
+    position: absolute;
+    top: var(--header-height);
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.05);
+    z-index: 1001;
+}
+
+.progress-bar-fill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, var(--neon-blue), #fff);
+    box-shadow: 0 0 15px var(--neon-blue);
+}
+
+.animate-progress {
+    animation: progressLoop 6.5s linear forwards;
+}
+
+
+/* =========================================================
+   5. HEADER
+   ========================================================= */
+
+header {
+    width: 100%;
+    height: var(--header-height);
+    display: flex;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.01);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid var(--glass-border);
+}
+
+header nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+}
+
+header .logo {
+    font-weight: 900;
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+}
+
+header .menu {
+    display: flex;
+    align-items: center;
+}
+
+header .menu a {
+    margin-left: 30px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    opacity: 0.6;
+    transition: 0.3s;
+}
+
+header .menu a:hover {
+    opacity: 1;
+    color: var(--neon-blue);
+}
+
+
+/* =========================================================
+   6. TÍTULO PRINCIPAL
+   ========================================================= */
+
+.titulo-principal {
+    font-size: clamp(1.4rem, 4vh, 2.3rem);
+    font-weight: 900;
+    letter-spacing: 10px;
+    margin: 30px 0;
+    background: var(--shine-color);
+    background-size: 200% auto;
+    
+    -webkit-text-fill-color: transparent;
+    animation: shineHollywood 4s linear infinite;
+}
+
+
+/* =========================================================
+   7. CAROUSEL
+   ========================================================= */
+
+.carousel-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 480px;
+    z-index: 10;
+}
+
+
+/* =========================================================
+   8. CARDS
+   ========================================================= */
+    /* Tamanho dos Cards otimizado */
+.frota-cards, .backoffice-cards, .faturamento-cards, .produtividade-cards,
+.sesmt-cards {
+    width: 320px;
+    height: 420px;
+    perspective: 2000px;
+}
+
+
+.card {
+    position: absolute;
+    width: 320px;
+    height: 440px;
+    background: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(40px);
+    border-radius: 40px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.8s cubic-bezier(0.2, 1, 0.3, 1);
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(0.8) translateZ(-100px);
+}
+
+.card.active {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1) translateZ(100px);
+    border-color: var(--neon-blue);
+    pointer-events: auto;
+    z-index: 50;
+}
+
+/* Efeitos dos cards */
+.card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -150%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, transparent, rgba(255,255,255,0.4), transparent);
+    transform: skewX(-25deg);
+    transition: 0.8s;
+}
+
+.card.active:hover::after {
+    left: 150%;
+}
+
+.card.active:hover img:not(.verificado img) {
+    transform: scale(1.05);
+    filter: brightness(1.2);
+}
+
+/* =========================================================
+   9. ELEMENTOS INTERNOS
+   ========================================================= */
+
+.card img:not(.verificado img) {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 20px;
+    margin-bottom: 20px;
+}
+
+.card h3 {
+    font-size: 1.1rem;
+    text-align: center;
+    margin-bottom: 10px;
+    font-weight: 800;
+}
+
+.card p {
+    font-size: 0.8rem;
+    color: var(--text-gray);
+    text-align: center;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.card ul {
+    gap: 8px;
+}
+
+.card ul li {
+    font-size: 0.8rem;
+    color: #cbd5e1;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.card ul li::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    background: var(--light-blue);
+    border-radius: 50%;
+    box-shadow: 0 0 8px var(--light-blue);
+    display: none !important; /* Força o desaparecimento do ponto azul */
+    content: none !important;
+}
+
+
+.botao-acessar {
+    padding: 6px;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--glass-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    transition: 0.3s;
+}
+
+.botao-acessar:hover {
+    background: rgba(0, 212, 255, 0.2);
+    border-color: var(--neon-blue);
+    transform: translateY(-3px);
+}
+
+.botao-acessar::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -150%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, transparent, rgba(255,255,255,0.5), transparent);
+    transform: skewX(-25deg);
+    transition: 0.6s;
+}
+
+.botao-acessar img {
+    width: 25px !important;
+    height: 25px !important;
+    margin-bottom: 0 !important;
+}
+
+/* =========================================================
+   10. STATUS
+   ========================================================= */
+
+.faixa {
+    position: absolute;
+    top: 25px;
+    left: -5px;
+    width: 45%;
+    padding: 8px;
+    background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.9), transparent);
+    font-size: 0.7rem;
+    font-weight: 900;
+    transform: rotate(-30deg);
+    text-align: center;
+}
+
+.verificado {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.verificado img { 
+    width: 45px !important; 
+    filter: drop-shadow(0 0 10px rgba(0,212,255,0.5)); 
+}
+
+/* =========================================================
+   11. NAVEGAÇÃO
+   ========================================================= */
+
+.prev-btn, .next-btn {
+    position: fixed;
+    top: 55%;
+    transform: translateY(-50%);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    z-index: 1000;
+}
+
+.prev-btn { left: 15px !important; }
+.next-btn { right: 15px !important; }
+
+.prev-btn::after, .next-btn::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -150%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, transparent, rgba(255,255,255,0.6), transparent);
+    transform: skewX(-25deg);
+    transition: 0.5s;
+}
+
+.prev-btn:hover::after, .next-btn:hover::after {
+    left: 150%;
+}
+
+
+.prev-btn:hover, .next-btn:hover {
+    background: rgba(0, 212, 255, 0.2);
+    border-color: var(--neon-blue);
+    transform: translateY(-50%) scale(1.15);
+    box-shadow: 0 0 30px rgba(0, 212, 255, 0.5);
+    color: var(--neon-blue);
+}
+
+
+.prev-btn:hover::after, .next-btn:hover::after {
+    left: 150%;
+}
+
+
+
+/* =========================================================
+   12. DOTS
+   ========================================================= */
+
+.dots-container {
+    display: flex;
+    gap: 12px;
+    margin-top: 20px;
+    padding-bottom: 20px;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transition: 0.4s;
+}
+
+.dot.active {
+    width: 30px;
+    background: var(--neon-blue);
+    border-radius: 10px;
+    box-shadow: 0 0 15px var(--neon-blue);
+}
+
+
+/* =========================================================
+   12. BOTÃO VOLTAR
+   ========================================================= */
+
+/* BOTÃO VOLTAR (ESTILO HOLLYWOOD) */
+.btn-voltar-fixo {
+    position: fixed;
+    /* Ajustado para alinhar na mesma direção do botão fullscreen (right 30px), 
+        porém na parte superior, logo abaixo do header */
+    top: calc(var(--header-height) + 20px); 
+    right: 30px; 
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    color: #00d4ff;
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 99999;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.2);
+}
+
+.btn-voltar-fixo:hover {
+    transform: scale(1.1) rotate(90deg);
+    background: rgba(0, 212, 255, 0.2);
+    border-color: var(--neon-blue);
+    box-shadow: 0 0 30px rgba(0, 212, 255, 0.5);
+    color: #fff;
+}
+
+
+
+
+/* =========================================================
+    🔮 CSS V39.0: HOLLYWOOD 3D - SUPER RESPONSIVIDADE
+   ========================================================= */
+
+/* --- CONFIGURAÇÃO BASE (MOBILE FIRST) --- */
+.frota, .backoffice, .faturamento, .produtividade, .sesmt {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 80px;
+}
+
+.titulo-principal {
+    z-index: 100;
+    position: relative;
+    text-align: center;
+    background: var(--shine-color);
+   
+    -webkit-text-fill-color: transparent;
+    animation: shineHollywood 4s linear infinite;
+}
+
+/* --- 1. CELULAR (ATÉ 480px) --- */
+@media screen and (max-width: 480px) {
+    .titulo-principal { font-size: 1.3rem; letter-spacing: 4px; margin-top: 20px; }
+    .card { width: 85vw; height: 380px; }
+    .prev-btn, .next-btn { display: none; } /* Setas ocultas no touch */
+    .dots-container { margin-top: 20px; }
+}
+
+/* --- 2. TABLET (481px até 768px) --- */
+@media screen and (min-width: 481px) and (max-width: 768px) {
+    .titulo-principal { font-size: 1.6rem; letter-spacing: 6px; }
+    .card { width: 300px; height: 400px; }
+    .prev-btn { left: 10px !important; }
+    .next-btn { right: 10px !important; }
+    .card p { font-size: 0.7rem; margin-bottom: 5px; }
+}
+
+/* --- 3. TELAS PEQUENAS / LAPTOPS ANTIGOS (769px até 1280px) --- */
+@media screen and (min-width: 769px) and (max-width: 1280px) {
+    .titulo-principal { font-size: 1.8rem; margin-top: 10px; }
+    .card { width: 280px; height: 380px; }
+    .prev-btn { left: 15px !important; }
+    .next-btn { right: 15px !important; }
+    .card p { font-size: 0.5rem; margin-bottom: 5px; }
+}
+
+/* --- 4. MONITORES 15", 16", 17" (1366px até 1600px) --- */
+@media screen and (min-width: 1281px) and (max-width: 1600px) {
+    .titulo-principal { font-size: 2rem; margin-bottom: 25px; }
+    .card { width: 310px; height: 420px; }
+    .prev-btn { left: 30px !important; }
+    .next-btn { right: 30px !important; }
+    .card p { font-size: 0.9rem; margin-bottom: 5px; }
+}
+
+/* --- 5. MONITORES 23", 24" (PADRÃO 1080p - 1920px) --- */
+@media screen and (min-width: 1601px) and (max-width: 1920px) {
+    .titulo-principal { font-size: 2.5rem; letter-spacing: 12px; margin-bottom: 40px; }
+    .card { width: 340px; height: 480px; }
+    .prev-btn { left: 50px !important; }
+    .next-btn { right: 50px !important; }
+    .dots-container { margin-top: 50px; }
+    .card p { font-size: 1.2rem; margin-bottom: 5px; }
+}
+
+/* --- 6. MONITORES 32" (QUAD HD / 2K - 2560px) --- */
+@media screen and (min-width: 1921px) and (max-width: 2560px) {
+    .titulo-principal { font-size: 3rem; letter-spacing: 15px; margin-bottom: 50px; }
+    .card { width: 400px; height: 550px; }
+    .card p { font-size: 1.2rem; margin-bottom: 5px; }
+    .prev-btn { left: 80px !important; }
+    .next-btn { right: 80px !important; }
+}
+
+/* --- 7. MONITORES 43" OU SUPERIORES (4K - Acima de 2561px) --- */
+@media screen and (min-width: 2561px) {
+    .titulo-principal { font-size: 4.5rem; letter-spacing: 25px; margin-top: 80px; margin-bottom: 120px; }
+    .card { width: 500px; height: 700px; padding: 3rem; }
+    .card h3 { font-size: 2rem; }
+    .card p { font-size: 1.1rem; margin-bottom: 5px; }
+    .prev-btn, .next-btn { width: 100px; height: 100px; font-size: 40px; }
+    .prev-btn { left: 150px !important; }
+    .next-btn { right: 150px !important; }
+    .dots-container { transform: scale(1.5); margin-top: 80px; }
+}
+
+/* RESPONSIVIDADE MOBILE (TOUCH APENAS) */
+@media (max-width: 480px) {
+    .titulo-principal { font-size: 1.5rem; letter-spacing: 3px; }
+    
+    .carousel-container { height: 450px; }
+    
+    /* Esconder setas no mobile conforme solicitado */
+    .prev-btn, .next-btn { display: none !important; }
+
+    .card {
+        width: 82vw;
+        height: 400px;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+    }
+
+    .dots-container { margin-top: 40px; }
+    
+    /* Ajuste para o botão widescreen não cobrir nada */
+    .fullscreen-btn { width: 40px; height: 40px; bottom: 15px; right: 15px; }
+}
